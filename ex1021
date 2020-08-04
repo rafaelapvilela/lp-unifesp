@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+int main()
+{
+    double v;
+    scanf("%lf",&v);
+    int s,valor,a,b,c,d,e,f,g,h,i,j,k,l;
+    valor=v;
+    a=valor/100;
+    s=valor%100;
+    b=s/50;
+    s=s%50;
+    c=s/20;
+    s=s%20;
+    d=s/10;
+    s=s%10;
+    e=s/5;
+    s=s%5;
+    f=s/2;
+    g=s%2;
+    valor=(v-valor)*100;
+    h=valor/50;
+    s=valor%50;
+    i=s/25;
+    s=s%25;
+    j=s/10;
+    s=s%10;
+    k=s/5;
+    l=s%5;
+    printf("NOTAS:\n");
+    printf("%d nota(s) de R$ 100.00\n",a);
+    printf("%d nota(s) de R$ 50.00\n",b);
+    printf("%d nota(s) de R$ 20.00\n",c);
+    printf("%d nota(s) de R$ 10.00\n",d);
+    printf("%d nota(s) de R$ 5.00\n",e);
+    printf("%d nota(s) de R$ 2.00\n",f);
+    printf("MOEDAS:\n");
+    printf("%d moeda(s) de R$ 1.00\n",g);
+    printf("%d moeda(s) de R$ 0.50\n",h);
+    printf("%d moeda(s) de R$ 0.25\n",i);
+    printf("%d moeda(s) de R$ 0.10\n",j);
+    printf("%d moeda(s) de R$ 0.05\n",k);
+    printf("%d moeda(s) de R$ 0.01\n",l);
+    return 0;
+}
