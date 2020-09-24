@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main() {
+
+  int n, c, l;
+
+  while ((scanf("%d", &n))!=EOF) {//ler entradas ate o EOF
+    
+    //cria a matriz
+    int matriz[n][n];
+
+    //insere os valores 1, 2 ou 3 nas posicoes adequadas
+    for (l=0; l<n; l++){
+      for (c=0; c<n; c++){
+        if ((c+l)==(n-1)) {
+          matriz[l][c] = 2;
+        } else if (c==l) {
+          matriz[l][c] = 1;
+        } else {
+          matriz[l][c] = 3;
+        }
+      }
+    }
+    
+    //imprime a matriz
+    for (l=0; l<n; l++){
+      for (c=0; c<n; c++){
+        printf("%d", matriz[l][c]);
+        if (c==(n-1)){
+          printf("\n");
+        }
+      }
+    }
+  }
+  
+  return 0;
+}
