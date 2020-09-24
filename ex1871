@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main(void) {
+  long int a, b, soma;
+  int i, j; //auxiliares
+  char lista[11];
+  scanf("%ld %ld", &a, &b);
+  do {
+    soma = a + b;
+    //transfere os algarismos da soma para a lista, determina a quantidade de componentes da lista em i
+    i = sprintf(lista,"%ld",soma); 
+    //imprime os elementos da lista que é diferente de 0
+    for (j=0; j<i; j++){
+      if (lista[j]!='0'){
+        printf("%c",lista[j]);
+      }
+    }
+    printf("\n");
+    scanf("%ld %ld", &a, &b);
+  } while ((a!=0)&&(b!=0));
+  return 0;
+}
