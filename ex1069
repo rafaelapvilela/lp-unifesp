@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(void) {
+  int i, j, n, r, l=0; //i, j, r: contadores auxiliares; n: número de casos de teste; l: número de "<>"
+  scanf("%d", &n);
+  char mina[1001]; //conteúdo da mina
+
+  for (i=0; i<n; i++) { //verifica entrada pelo número de casos de testes
+    scanf("%s", mina);
+
+    for (j=0; j<strlen(mina); j++) { 
+      if (mina[j]=='<') { //verifica se existe "<"
+        for (r=j; r<strlen(mina); r++) { 
+          if (mina[r]=='>'){ //encontra seu par ">"
+            l+=1; // contabiliza um diamante a mais
+            //substitui por outros carateres diferentes,pois já foi usado para contar
+            mina[j] = '.'; 
+            mina[r] = '.';
+            break; // interrompe quando encontra o par
+          }
+        }
+      }
+    }
+    printf("%d\n", l);
+    l=0; // zera o número de diamantes para a próxima linha de entrada a ser analisada
+  }
+
+  return 0;
+}
