@@ -1,0 +1,53 @@
+#include <stdio.h>
+
+int main(void) {
+  int n, aux, c=0, l=0;
+
+  while (1) {
+    //cria uma matriz quadrada com o valor 'n' lido
+    scanf("%d", &n);
+    int matriz[n][n];
+
+    if(n==0) {
+      break;
+    }
+ 
+
+    //insere 1 em todas as linhas e colunas
+    for (c=0; c<n; c++){
+      for (l=0; l<n; l++){
+        matriz[c][l] = 1;
+      }     
+    }
+
+    //aumenta uma unidade nas bordas das matrizes inferiores
+    int i=0;
+    for (aux = n; aux>2; aux--) {
+      i++;
+      c=l=i;
+      while (c<(aux-1)){
+        l=i;
+        while (l<(aux-1)){
+          matriz[c][l] += 1;
+          l++;
+        }     
+        c++;
+      }
+    } 
+
+    //imprime a matriz
+    for (l=0; l<n; l++) {
+      for (c=0; c<n; c++){
+        if (c==0) {
+          printf("%3d", matriz[c][l]);
+        } else {
+          printf(" %3d", matriz[c][l]);
+        }        
+      }
+      printf("\n");
+    }
+    printf("\n");
+  }  
+  
+  return 0;
+}
