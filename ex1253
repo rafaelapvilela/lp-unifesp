@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(void) {
+  int num, desloc, i, j;
+  char codigo[50];
+  
+  scanf("%d", &num);
+  for (i=0; i<num; i++) { //repete de acordo com a quantidade de codigos que devem ser inseridos
+    scanf("%s", codigo);
+    scanf("%d", &desloc);
+
+    for (j=0; j<strlen(codigo); j++) { //varre o codigo letra a letra e substitui
+      codigo[j] = codigo[j] - desloc; //ref tabela ANSI II
+      
+      if (codigo[j]<'A') { //verifica se ficou dentro do alfabeto e corrige
+        codigo[j] = codigo[j] + 26;
+      }
+    }
+
+      printf("%s\n", codigo);
+  }
+
+  return 0;
+}
