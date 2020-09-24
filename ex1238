@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+
+int main (void) {
+  char a[50], b[50], c[100] = {'\0'};
+  int i, j, k,  n, maior, somaC;
+  scanf("%d", &n);
+  for (i = 0; i < n; i++) {
+    scanf("%s", a); 
+    scanf("%s", b);
+    somaC = strlen(a) + strlen(b); // A soma do tamanho das strings A e B será o tamanho da string C
+    j = 0, k = 0;
+    while (strlen(c) < somaC) { // enquanto C ainda não está preenchido
+      if (k < strlen(a)) { // somente será inserido na string C caracteres existentes em A
+        c[j] = a[k];       
+        j++; // quando um caractere é inserido devemos subir um índice de C;
+      }
+      if (k < strlen(b)) {
+        c[j] = b[k];
+        j++;
+      }
+      k++;
+    }
+    printf("%s\n", c);
+    for (j = 0; j < somaC; j++) {  // limpando a string C
+      c[j] = '\0';
+    }
+  }
+  return 0;
+}
