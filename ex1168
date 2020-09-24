@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+  int leds=0, i, j, n;//leds: número de leds; i, j: contadores auxiliares; n: número de testes
+  char a[101]; //número no painel
+  
+  scanf("%d", &n);
+
+  //verifica o número de casos testes
+  for(i=0; i<n; i++){
+    scanf("%s", a);
+    //soma em leds a quantidade de led para cada algarismo da string a
+    for (j=0; j<strlen(a); j++) {
+      if (a[j] == '0' || a[j] == '6' || a[j] == '9') {
+        leds += 6;
+      }
+      if (a[j] == '1') {
+        leds += 2;
+      }
+      if (a[j] == '2' || a[j] == '3' || a[j] == '5') {
+        leds += 5;
+      }
+      if (a[j] == '4') {
+        leds += 4;
+      }
+      if (a[j] == '7') {
+        leds += 3;
+      }
+      if (a[j] == '8') {
+        leds += 7;
+      }
+    }
+    printf("%d leds\n", leds);
+    leds=0; // zera a contagem para o próximo número
+
+  }
+
+  return 0;  
+}
