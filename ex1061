@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int d0, h0, m0, s0, d1, h1, m1, s1, d, h, m, s, t;
+    scanf("Dia %d", &d0);
+    scanf("%d : %d : %d\n", &h0, &m0, &s0);
+    scanf("Dia %d", &d1);
+    scanf("%d : %d : %d", &h1, &m1, &s1);
+    t = (((d1-1)*86400)+(h1*3600)+(m1*60)+s1)-(((d0-1)*86400)+(h0*3600)+(m0*60)+s0);
+    d = t/86400;
+    h = (t%86400)/3600;
+    m = (t%3600)/60;
+    s = t%60;
+    printf("%d dia(s)\n",d);
+    printf("%d hora(s)\n",h);
+    printf("%d minuto(s)\n",m);
+    printf("%d segundo(s)\n",s);
+    return 0;
+}
