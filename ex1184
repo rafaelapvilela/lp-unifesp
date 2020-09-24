@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+
+  double M[12][12], soma=0.0;
+  char opr[1];
+  int c, l;
+  scanf(" %s", opr); //define S-soma ou M-media
+
+  //insere os valores na matriz
+  for (l=0; l<12; l++){
+    for (c=0; c<12; c++){
+      scanf("%lf", &M[l][c]);
+    }
+  }
+
+  //soma os valores abaixo da diagonal
+  for(c=0; c<l; c++) {
+    for(l=11; l>c; l--){
+      soma = soma + M[l][c];
+    }
+    l=11;
+  }
+
+  //imprime soma ou média
+  if (*opr=='S') {
+    printf("%.1lf\n", soma);
+  } else if (*opr=='M'){
+    printf("%.1lf\n", soma/66.0);
+  }
+
+  return 0;
+}
