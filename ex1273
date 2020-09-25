@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <string.h>
+
+typedef struct {            //define uma estrutura para armazenar as palavras e seus tamanhos
+  char nome[51];
+  int tamanho;
+} palavra;
+
+int main(void) {
+  int n, i, j, maior, qtd;
+  scanf("%d", &n);        //palavras a seguir
+
+  while (n!=0) {
+
+    palavra palavras[n];    //define um conjunto de estruturas de palavras com seu nome e tamanho
+    for (i=0; i<n; i++) {   //cadastra o nome e tamanho das palsvras
+      scanf(" %s", palavras[i].nome);
+      palavras[i].tamanho = strlen(palavras[i].nome);
+      if (i==0) {           //guarda em maior a palavra de maior tamanho da série    
+        maior = palavras[i].tamanho;
+      }
+      if (i>=1 && palavras[i].tamanho>=maior) {
+        maior = palavras[i].tamanho;   
+      }
+    }
+
+    for (i=0; i<n; i++) {   //imprime justificado com os espaços à direita
+      qtd = maior - palavras[i].tamanho;
+      while (qtd>0) {
+        putchar(' ');
+        qtd--;
+      }
+      printf("%s\n", palavras[i].nome);
+    }
+
+    scanf("%d", &n);        //palavras a seguir
+    if(n!=0){
+      printf("\n");
+    }
+
+  }
+
+  return 0;
+}
