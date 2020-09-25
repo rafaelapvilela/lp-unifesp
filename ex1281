@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <string.h>
+
+typedef struct {              //define uma estrutura para armazenar os dados das frutas disponíveis
+  char nome[51];
+  double valor;
+} frutaDisp;
+
+int main(void) {
+  int n, m, p, i, j, k, qt;   //contadores auxiliares e informações de entrada
+  double valorTotal;          //valor final a ser apresentado
+  char frutaEscolhida[51];    //nome da frutas escolhida (entrada)
+
+  scanf("%d", &n);            //idas à feira
+  for (i=0; i<n; i++){        
+    valorTotal = 0.0;
+    scanf("%d", &m);          //quantidade de frutas disponíveis
+    frutaDisp frutas[m];      //define um vetor com as m frutas diponíveis
+    for(j=0; j<m; j++){       //cadastra nome e valor das m frutas disponíveis
+      scanf("%s %lf", frutas[j].nome, &frutas[j].valor);
+    }
+    scanf("%d", &p);          //quantidade de frutas escolhidas
+    for (j=0; j<p; j++) {     //cadastra nome e quantidade das frutas escolhidas
+      scanf("%s %d", frutaEscolhida, &qt);
+      for(k=0; k<m; k++){     //compara o nome das frutas escolhidas e nome das disponiveis, captura o valor da respectiva fruta, multiplica e soma no total
+        if (!strcmp(frutas[k].nome,frutaEscolhida)) {
+          valorTotal += qt*frutas[k].valor;
+          break;
+        }
+      }
+    }
+    printf("R$ %.2f\n", valorTotal);
+
+  } 
+
+  return 0;
+}
