@@ -1,0 +1,93 @@
+#include <stdio.h>
+
+int main(void) {
+  int i, j=0, k, n, m, c, p, auxk, auxi;
+  int matriz[9][9], mx[9];
+  scanf("%d", &n);
+
+  while (j<n) {
+    c=0;
+    auxk=0;
+    auxi=0;
+    //limpa a matrizN
+    for (i=0; i<9; i++){
+      for (k=0; k<9; k++) {
+        matriz[i][k] = '\0';
+      }
+    }    
+    
+    //preenche a matrizN
+    for (i=0; i<9; i++){
+      for (k=0; k<9; k++) {
+        scanf("%d", &matriz[i][k]);
+      }
+    }
+
+    //verificar numeros repetidos nas linhas
+    for (i=0; i<9; i++){
+      for (k=0; k<9; k++) {
+        for (m=0; m<9; m++) {
+          if (matriz[i][k]==matriz[i][m] && k!=m) {
+            c=1;
+            break;
+          }
+        }
+        if (c==1) break;
+      }
+      if (c==1) break;
+    }
+
+    //verificar numeros repetidos nas colunas
+    for (k=0; k<9; k++){
+      for (i=0; i<9; i++) {
+        for (m=0; m<9; m++) {
+          if (matriz[i][k]==matriz[m][k] && i!=m) {
+            c=1;
+            break;
+          }
+        }
+        if (c==1) break;
+      }
+      if (c==1) break;
+    }
+
+    i=0;
+    k=0;
+
+    //limpa a matrizMx
+    while (i<9 && k<9) {     
+      mx[0] = '\0';
+      m=0;
+      if (k<6) auxk += 3;
+      if (k>=6) auxk=0;
+      if (k>=6) auxi += 3;
+
+      for (i=0+auxi; i<3+auxi; i++){
+        for (k=0+auxk; k<3+auxk; k++) {
+          mx[m] = matriz[i][k];
+          m++;
+        }
+      }
+      for (m=0; m<9; m++) {
+        for (p=0; p<9; p++) {
+          if (mx[m]==mx[p] && m!=p) {
+            c=1;
+            break;
+          }
+        }
+        if (c==1) break;
+      }
+      if (c==1) break; 
+    }
+
+    if (c==1) {
+      printf("Instancia %d\nNAO\n", j+1);
+    } else {
+      printf("Instancia %d\nSIM\n", j+1);
+    }
+    printf("\n");
+    
+    j++;
+  }
+  return 0;
+} 
