@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <string.h>
+
+
+typedef struct {            //define uma estrutura para armazenar as palavras e seus tamanhos
+  char frase[51];
+  int tsig;
+} palavras;
+
+int main(void) {
+
+  int n, i, j, maior, qtd, k;
+  scanf("%d", &n);     //palavras a seguir
+  getchar();    
+
+  while (n>0) {
+    palavras frases[n];    //define um conjunto de estruturas de frases com sua frase, total de caracteres significativos e tamanho
+    for (i=0; i<n; i++) {   //cadastra a frase, total de caracteres significativos e tamanho 
+      scanf("%[^\n]s", frases[i].frase);
+      getchar();
+      frases[i].tsig = 0;
+      for (j=0; j<strlen(frases[i].frase); j++) {
+        if (frases[i].frase[j] != ' ' || (frases[i].tsig>0 && j+1 != strlen(frases[i].frase) && frases[i].frase[j+1] != ' ')) {
+          frases[i].tsig += 1;
+        }
+      }
+      //cadastra a maior qtd de caraceteres significativos da serie
+      if(i==0 || frases[i].tsig>maior){
+        maior = frases[i].tsig;
+      }
+
+    }
+
+    for (j=0; j<n; j++){
+      if(j!=0)  printf("\n");
+      k=0;   
+      for(qtd = maior - frases[j].tsig; qtd>0; qtd--){
+        printf(" ");
+      }
+      for (i=0; i<strlen(frases[j].frase); i++) {
+        if (frases[j].frase[i] != ' ') {
+          printf("%c", frases[j].frase[i]);
+          k=1;
+        }
+        if (k>0 && i+1 != strlen(frases[j].frase) && frases[j].frase[i+1] != ' ' && frases[j].frase[i] == ' ') {
+          printf("%c", frases[j].frase[i]);
+        }
+      }
+
+    }
+
+    scanf("%d", &n);
+    getchar();
+    if (n>0)  printf("\n\n");
+
+  }
+
+  return 0;
+}
