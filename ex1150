@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+  int i, j, k=0,x,z;
+
+  //cadastra x e z aceitavel
+  scanf("%d", &x);
+  do{
+    scanf("%d", &z);
+  } while(x>=z);
+
+  //soma a resposta final    
+  for(i=x, j=0; j<z; i++) {
+    j+=i;
+    k++;
+  }
+
+  printf("%d\n", k);
+  return 0;
+}
