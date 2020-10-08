@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main() {
+  int s, t, f, h;
+
+  scanf("%d %d %d", &s, &t, &f);
+  h = s + t + f;
+
+  if(h < 0) {
+    h = 24 + h;
+  } 
+  
+  printf("%d\n", h%24);
+  return 0;
+}
