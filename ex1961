@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main()  {
+  int p, n, k=0, i, s;
+    
+  scanf("%d%d", &p, &n);
+  int pulo[n];
+  for(i=0; i<n; i++) {
+    scanf("%d",  &pulo[i]);
+  }
+
+  for(i=1; i<n; i++) {
+    if(pulo[i]>pulo[i-1]) {
+      s = (pulo[i]-pulo[i-1]);
+    } else {
+      s = (pulo[i-1]-pulo[i]);
+    }        
+    if(s<=p)  k++;
+  }
+
+  if (k==n-1)  printf("YOU WIN\n");
+  else  printf("GAME OVER\n");
+  return 0;
+}
