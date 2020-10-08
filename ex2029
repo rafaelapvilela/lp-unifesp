@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+int main(void) {
+  double v, d;
+  
+  while(scanf("%lf", &v)!=EOF) {
+    scanf("%lf", &d);
+    printf("ALTURA = %.2lf\nAREA = %.2lf\n", v/((d*d/4)*3.14), (d*d/4)*3.14);
+  }
+  return 0;
+}
