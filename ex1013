@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int a, b, c, mAB, mABC;
+    scanf("%d %d %d", &a, &b, &c);
+    mAB = (a+b+abs(a-b))/2;
+    mABC = (mAB+c+abs(mAB-c))/2;
+
+    printf("%d eh o maior\n", mABC);
+    return 0;
+}
