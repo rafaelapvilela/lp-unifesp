@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main(void) {
+  int gi, gg, j=0, n, i=0, g=0, e=0;
+  while (1) {
+    scanf("%d %d", &gi, &gg);
+    j++;
+    if (gi>gg) i++;
+    else if (gg>gi) g++;
+    else e++;
+    printf("Novo grenal (1-sim 2-nao)\n");
+    scanf("%d", &n);
+    if (n==2) break;
+  }
+  printf ("%d grenais\nInter:%d\nGremio:%d\nEmpates:%d\n", j, i, g, e);
+  if (i>g)  printf("Inter venceu mais\n");
+  else if (g>i) printf("Gremio venceu mais\n");
+  else printf("Nao houve vencedor\n");
+
+  return 0;
+}
