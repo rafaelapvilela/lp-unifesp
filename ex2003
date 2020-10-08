@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main(void) {
+  int h, m;
+
+  while(scanf("%d", &h)!=EOF) {
+    scanf(":%d", &m);
+    if (h==7) printf("Atraso maximo: %d\n", m);
+    else if(h==8) printf("Atraso maximo: %d\n", m+60);
+    else if(h==9) printf("Atraso maximo: 120\n");
+    else printf("Atraso maximo: 0\n");
+  }
+  return 0;
+}
