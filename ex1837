@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main(void) {
+  int a, b, q, r, aux, i, c, d;
+  scanf("%d %d", &a, &b);
+  //verifica se a e b negativo e manipula o b com auxiliares i e aux
+  if(a<0) {
+    aux=b;
+
+    if(b<0) {
+      aux=b*-1;
+    }
+
+    //contabiliza resto
+    for(r=0; r<aux; r++) {
+      i=a-r;
+
+      if(i%b == 0) {
+        break;
+      } 
+    }
+
+    q=i/b;
+  } else {
+    q = a/b;
+    r = a%b;
+  }
+  //imprime q e r
+  printf("%d %d\n", q,r);
+  return 0;
+}
