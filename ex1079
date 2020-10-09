@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main(void) {
+  int n, i;
+  double nota, soma;
+  scanf("%d", &n);
+  while (n>0) {
+    soma=0;
+    for(i=0; i<3; i++) {
+      scanf("%lf", &nota);
+      if(i==0) soma = soma + (nota*2.0);
+      else if(i==1) soma = soma + (nota*3.0);
+      else if(i==2) soma = soma + (nota*5.0);
+    }
+    printf("%.1lf\n", soma/10.0);
+    n--;
+  }
+  return 0;
+}
